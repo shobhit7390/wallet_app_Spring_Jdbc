@@ -89,8 +89,9 @@ public class App
 		String userPassword=sc.nextLine();
 		System.out.println("Enter user email: ");
 		String userEmail=sc.nextLine();
-		walletManager.addUser(userName, userPassword, userEmail);
+		int userId=walletManager.addUser(userName, userPassword, userEmail);
 		System.out.println("Account Created Successfully...!!\n");
+		System.out.println("User Id is:"+ userId);
 	}
 	
 	private void login() {

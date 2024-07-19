@@ -37,7 +37,7 @@ public class WalletManager {
 		return user;
 	}
 	
-	public void addUser(String userName, String userPassword, String userEmail) {
+	public int addUser(String userName, String userPassword, String userEmail) {
 		try {
 			String query="insert into Users(userName, userPassword, userEmail) values(?, ?, ?)";
 			PreparedStatement st=con.prepareStatement(query);
@@ -45,9 +45,22 @@ public class WalletManager {
 			st.setString(2, userPassword);
 			st.setString(3, userEmail);
 			st.executeUpdate();
+			
+			User user=null;
+			String query2="select * from Users where userEmail=?";
+			PreparedStatement st2=con.prepareStatement(query2);
+			st2.setString(1, userEmail);
+			ResultSet rs = st2.executeQuery();
+			if(rs.next()) {
+				user=new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDouble(5));
+			}
+			return user.getUserId();
+			
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return 0;
 	}
 	
 	
