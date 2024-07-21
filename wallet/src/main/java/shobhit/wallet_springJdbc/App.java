@@ -1,5 +1,8 @@
 package shobhit.wallet_springJdbc;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -47,8 +50,8 @@ public class App
 				System.out.println("3. Withdraw Money");
 				System.out.println("4. Fund transfer");
 				System.out.println("5. Print transaction history");
-				System.out.println("6. Logout");
-				System.out.println("7. Change your Pin");
+				System.out.println("6. Change your Pin");
+				System.out.println("7. Logout");
 				System.out.println("8. Exit");
 				System.out.println("Choose an option:");
 				
@@ -71,10 +74,10 @@ public class App
 					printTransactionHistory();
 					break;
 				case 6:
-					logout();
+					changePin();
 					break;
 				case 7:
-					changePin();
+					logout();
 					break;
 				case 8:
 					exit=false;
@@ -332,9 +335,9 @@ public class App
 	
     public static void main( String[] args )
     {
+		ApplicationContext context=new ClassPathXmlApplicationContext("context.xml");
     	App app=new App();
     	System.out.println("*** Wallet Manager Powered By "+ bankName + " ***\n");
-    	app.showMenu();        
-        
+    	app.showMenu();
     }
 }
