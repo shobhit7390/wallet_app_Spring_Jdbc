@@ -213,6 +213,7 @@ public class App
 				fundTransferApi(recipientUpiId, "UPI ID");
 				break;
 			case 2:
+
 				System.out.println("Enter recipient's Account Number : ");
 				String recipientAccNo=sc.nextLine();
 				fundTransferApi(recipientAccNo, "ACC NO");
