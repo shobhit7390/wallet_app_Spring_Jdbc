@@ -1,4 +1,4 @@
-package shobhit.wallet;
+package shobhit.wallet_springJdbc;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

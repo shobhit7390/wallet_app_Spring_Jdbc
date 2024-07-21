@@ -1,4 +1,4 @@
-package shobhit.wallet;
+package shobhit.wallet_springJdbc;
 
 import java.sql.Timestamp;
 
